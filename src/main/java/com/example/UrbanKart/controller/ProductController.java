@@ -4,6 +4,7 @@ import com.example.UrbanKart.Enum.Category;
 import com.example.UrbanKart.dto.RequestDto.ProductRequestDto;
 import com.example.UrbanKart.dto.ResponseDto.ProductResponseDto;
 import com.example.UrbanKart.exception.SellerNotFoundException;
+import com.example.UrbanKart.model.Seller;
 import com.example.UrbanKart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,5 +37,12 @@ public class ProductController {
 
         List<ProductResponseDto> productResponseDtos = productService.getAllProductsByCategoryAndPrice(category, price);
         return new ResponseEntity(productResponseDtos, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/find_by_seller_and_category")
+    public ResponseEntity getAllProductsSoldByASellerInACategory(@RequestParam Category category, @RequestParam int sellerId){
+
+        List<ProductResponseDto> productResponseDtos = productService.getAllProductsSoldByASellerInACategory(category, sellerId);
+        return new ResponseEntity(productResponseDtos, HttpStatus.FOUND);
     }
 }

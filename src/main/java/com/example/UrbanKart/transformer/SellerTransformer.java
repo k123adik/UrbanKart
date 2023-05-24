@@ -22,4 +22,5 @@ public class SellerTransformer {
                 .mobNo(seller.getMobNo())
                 .build();
     }
+
 }

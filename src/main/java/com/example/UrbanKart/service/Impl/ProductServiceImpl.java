@@ -60,4 +60,16 @@ public class ProductServiceImpl implements ProductService {
         }
         return productResponseDtos;
     }
+
+    @Override
+    public List<ProductResponseDto> getAllProductsSoldByASellerInACategory(Category category, int sellerId) {
+
+        List<Product> products = productRepository.findByCategoryAndSellerId(category, sellerId);
+
+        List<ProductResponseDto> productResponseDtos = new ArrayList<>();
+        for(Product product : products){
+            productResponseDtos.add(ProductTransformer.productToProductResponseDto(product));
+        }
+        return productResponseDtos;
+    }
 }
