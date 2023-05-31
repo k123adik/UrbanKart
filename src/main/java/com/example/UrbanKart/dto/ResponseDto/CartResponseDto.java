@@ -3,18 +3,18 @@ package com.example.UrbanKart.dto.ResponseDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class CustomerResponseDto {
+public class CartResponseDto {
 
-    String name;
+    int cartTotal;
 
-    String emailId;
+    String customerName;
 
-    String mobNo;
-
-    int age;
+    List<ItemResponseDto> items;
 }

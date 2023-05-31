@@ -1,5 +1,6 @@
 package com.example.UrbanKart.dto.ResponseDto;
 
+import com.example.UrbanKart.Enum.CardType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,13 +9,11 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class CustomerResponseDto {
+public class CardResponseDto {
 
-    String name;
+    String customerName;
 
-    String emailId;
+    String cardNo;
 
-    String mobNo;
-
-    int age;
+    CardType cardType;
 }

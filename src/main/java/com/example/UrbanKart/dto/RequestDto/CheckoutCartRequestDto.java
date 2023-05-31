@@ -1,4 +1,5 @@
-package com.example.UrbanKart.dto.ResponseDto;
+package com.example.UrbanKart.dto.RequestDto;
+
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,13 +9,11 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class CustomerResponseDto {
-
-    String name;
+public class CheckoutCartRequestDto {
 
     String emailId;
 
-    String mobNo;
+    String cardNo;
 
-    int age;
+    int cvv;
 }

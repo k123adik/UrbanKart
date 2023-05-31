@@ -35,6 +35,9 @@ public class Customer {
     @Column(name = "gender")
     Gender gender;
 
+    @Column(name = "age")
+    int age;
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     List<Card> cards = new ArrayList<>();
 

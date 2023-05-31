@@ -1,23 +1,27 @@
 package com.example.UrbanKart.dto.RequestDto;
 
-import com.example.UrbanKart.Enum.Gender;
+import com.example.UrbanKart.Enum.CardType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.sql.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class CustomerRequestDto {
-
-    String name;
+public class CardRequestDto {
 
     String emailId;
 
-    String mobNo;
+    String cardNo;
 
-    Gender gender;
+    int cvv;
 
-    int age;
+    CardType cardType;
+
+    Date validTill;
+
+
 }

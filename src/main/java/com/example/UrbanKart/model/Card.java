@@ -21,13 +21,14 @@ public class Card {
     @Column(name = "id")
     int id;
 
-    @Column(name = "name")
-    String name;
-
     @Column(name = "cvv")
     int cvv;
 
+    @Column(name = "card_no")
+    String cardNo;
+
     @Column(name = "card_type")
+    @Enumerated(EnumType.STRING)
     CardType cardType;
 
     @Column(name = "valid_till")

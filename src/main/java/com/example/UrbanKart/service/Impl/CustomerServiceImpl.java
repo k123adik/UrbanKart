@@ -10,6 +10,9 @@ import com.example.UrbanKart.transformer.CustomerTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -31,5 +34,33 @@ public class CustomerServiceImpl implements CustomerService {
 
         //prepare responseDto
         return CustomerTransformer.CustomerToCustomerResponseDto(savedCustomer);
+    }
+
+    @Override
+    public List<CustomerResponseDto> getAllFemaleCustomersBetweenAge20And30() {
+
+        List<Customer> customers = customerRepository.femaleCustomersAgeBetween20And30();
+
+        //entity to response dto
+        List<CustomerResponseDto> customerResponseDtos = new ArrayList<>();
+        for(Customer customer : customers){
+            customerResponseDtos.add(CustomerTransformer.CustomerToCustomerResponseDto(customer));
+        }
+
+        return customerResponseDtos;
+    }
+
+    @Override
+    public List<CustomerResponseDto> maleCustomersAgeLessThan45() {
+
+        List<Customer> customers = customerRepository.maleCustomersAgeLessThan45();
+
+        //entity to dto
+        List<CustomerResponseDto> customerResponseDtos = new ArrayList<>();
+        for(Customer customer : customers){
+            customerResponseDtos.add(CustomerTransformer.CustomerToCustomerResponseDto(customer));
+        }
+
+        return customerResponseDtos;
     }
 }
